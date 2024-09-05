@@ -1,9 +1,9 @@
 # junos-pyez-event-script-2RE
 JunOS event script on python that works on 2RE router 
-I have created this scripts to use it on Juniper BGP border routers. In my AS I have 2 BGP routers thay are connected to the same IX. When some kind of disaster occurs with one of the channels to IX, the other channel to IX is overloaded. Because IX is the single AS, traffic to/from it do not distributed via other Internet channles. To overcome this situation I have developed solutions that is relay on [Junos Event Script feature](https://www.juniper.net/documentation/us/en/software/junos/automation-scripting/topics/concept/junos-script-automation-event-script-overview.html):
-I have created BGP seesion between my BGP border routers through both channels to IX and monitor its state,
-when there is some kind of disaster with one of the channels to IX, BGP session is down and than script **bgp_down** is activated, it adds BGP communities that says IX's route servers do not annonce our AS to some ASes and traffic from these ASes shall move from IX to other Internet channels that my AS have.
-When BGP session is UP (that means both channles to IX are UP) **bgp_up** script is activated, it removes communities that were set by **bgp_down** script.
+In my AS I have 2 BGP routers thay are connected to the same IX. When some kind of disaster occurs with one of the channels to IX, the other channel to IX is overloaded. Because IX is the single AS, traffic to/from it do not distributed via other Internet channles. To overcome this situation I have developed solutions that is relay on [Junos Event Script feature](https://www.juniper.net/documentation/us/en/software/junos/automation-scripting/topics/concept/junos-script-automation-event-script-overview.html):
+* I have created BGP seesion between my BGP border routers through both channels to IX and monitor its state,
+* when there is some kind of disaster with one of the channels to IX, BGP session is down and than script **bgp_down** is activated, it adds BGP communities that says IX's route servers do not annonce our AS to some ASes and traffic from these ASes shall move from IX to other Internet channels that my AS have.
+* When BGP session is UP (that means both channles to IX are UP) **bgp_up** script is activated, it removes communities that were set by **bgp_down** script.
 
 Installation
 ------------
