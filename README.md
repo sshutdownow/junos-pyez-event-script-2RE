@@ -14,7 +14,7 @@ Installation
 
 Official documentation how to [store and enable Junos Automation Scripts](https://www.juniper.net/documentation/us/en/software/junos/automation-scripting/topics/task/junos-script-automation-script-storing-enabling.html) 
 I do it in this way:
-
+```
 ip@mx-1> start shell user root
 Password:
 root@mmx-1:/var/home/ip # cd /var/db/scripts/event
@@ -30,7 +30,7 @@ commit complete
 ip@mx-1# exit
 Exiting configuration mode
 ip@mx-1> request system scripts event-scripts reload
-
+```
 ### Requirements
 
 This script works on Juniper's routing engune(RE) and tested to work on Junos version 21.4R3-S4.9 limited.
